@@ -1,0 +1,25 @@
+
+
+
+
+       ldr     r0,=0x000000FF
+       ldr     r1,=0xf0f1f3f4
+       ldr     r2,=0x200
+       ldr     r3,=0x204
+       str     r1,[r2]
+       mov     r5,#0
+
+       and     r4,r0,r1
+       add     r5,r4,r5
+       lsr     r1,r1,#8
+
+       and     r4,r0,r1
+       add     r5,r4,r5
+       lsr     r1,r1,#8
+
+       and     r4,r0,r1
+       add     r5,r4,r5
+       lsr     r1,r1,#8
+
+       add     r5,r4,#2
+       str     r5,[r3]

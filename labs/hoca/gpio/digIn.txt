@@ -1,0 +1,41 @@
+#include "mbed.h"
+
+DigitalOut red(p5);
+DigitalOut blue(p6);
+DigitalOut led(LED1);
+DigitalOut led3(LED3);
+DigitalOut led4(LED4);
+DigitalIn bt1(p7);
+DigitalIn bt2(BUTTON1);
+
+int a=0;
+int b=0;
+
+int main() {
+    while (1) {
+        led = !led;
+        printf("dugme 1 2 sayac a b %d %d %d %d\n", bt1.read(),bt2.read(),a,b);
+
+    if (bt1.read()==1){
+        led3=!led3;
+        a+=1;
+        wait_ms(100);
+    }
+    if (bt2.read()==1){
+        led4=!led4;
+        b+=1;
+        wait_ms(100);
+    }
+    if (a==4){
+        wait_ms(800);
+        red=!red;
+        a=0;
+    }
+    if (b==6){
+        wait_ms(900);
+        blue=!blue;
+        b=0;
+    }
+        wait_ms(200);
+    }
+}

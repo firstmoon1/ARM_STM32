@@ -1,0 +1,213 @@
+a)
+
+#include "mbed.h"
+
+DigitalOut led(LED1);
+Ticker tim1;
+InterruptIn but(BUTTON1);
+
+void fuck(){
+   
+   led=!led;
+}
+
+
+int main() {
+   int i=0;
+   printf("hello\n");
+   tim1.attach(callback(&fuck),1.5f);
+   
+   while(1){
+       i++;
+       printf("i:%d\n",i);
+       if(i==5){
+           
+           i=0;
+       }
+       wait_ms(300);
+   }
+   wait_ms(osWaitForever);
+}
+
+
+
+
+b)
+
+
+
+#include "mbed.h"
+
+DigitalOut led(LED1);
+Ticker tim1;
+InterruptIn but(BUTTON1);
+int cnt=0;
+void fuck(){
+    printf("cnt: %d\n",cnt);
+    cnt=0;
+}
+void fuck1(){
+    cnt++;
+}
+
+int main() {
+
+   printf("hello\n");
+   tim1.attach(callback(&fuck),1.5f);
+   but.rise(callback(&fuck1));
+   
+   wait_ms(osWaitForever);
+}
+
+
+
+
+c)
+
+
+
+#include "mbed.h"
+
+DigitalOut led(LED1);
+Ticker tim1;
+Timeout tim2;
+InterruptIn but(BUTTON1);
+int cnt=0;
+
+void fuck2(){
+    led=0;
+    wait_ms(900);
+    led=1;
+}
+void fuck1(){
+    cnt++;
+}
+
+void fuck(){
+    printf("cnt: %d\n",cnt);
+    
+    if (cnt>3){
+            
+           tim2.attach(callback(&fuck2),1.0f);
+    }
+    cnt=0;
+}
+
+
+
+
+int main() {
+    led=1;
+   printf("hello\n");
+   tim1.attach(callback(&fuck),1.5f);
+   but.rise(callback(&fuck1));
+   wait_ms(osWaitForever);
+}
+
+
+
+
+
+
+
+ aaa nın bizim cocuk un yaptıgı
+#include "mbed.h"
+
+DigitalOut led1(p5);
+DigitalOut led2(p6);
+InterruptIn btn(p7);
+Ticker timer1;
+Ticker timer2;
+
+ int cnt=0,value=1,btn_cnt=0;
+ 
+void count_ISR() {
+    extern int value;
+    printf("count value -> %d \n", value);
+    value++;
+   if(value==6){
+    value=1;
+    led1=!led1;
+   }
+}
+
+void button_push(){
+    btn_cnt++;
+}
+
+void button_ISR(){
+    led2=1;
+    btn.fall(callback(&button_push));
+    cnt=btn_cnt;
+    printf("button count -> %d \n", cnt);
+    if(cnt>3){
+    led2=0;
+         wait_ms(1000);
+    }
+    btn_cnt=0;
+    cnt=0;
+}
+
+int main() {
+
+   timer1.attach(callback(&count_ISR), 0.3);
+   timer2.attach(callback(&button_ISR), 1.5); 
+   wait_ms(osWaitForever);
+}
+
+
+
+
+
+
+hepsi 1 arada
+
+#include "mbed.h"
+
+DigitalOut ledr(p5);
+DigitalOut ledb(p6);
+Ticker tim1;
+Ticker tim11;
+Timeout tim2;
+InterruptIn but(p7);
+int cnt=0,cnt1=1;
+
+void fuck2(){
+    ledb=0;
+    wait_ms(1000);
+    ledb=1;
+}
+
+void fuck1(){
+    cnt++;
+}
+
+void fuck3(){
+    cnt1++;
+}
+
+void fuck(){
+    
+    but.rise(callback(&fuck1));
+    printf("blue counter: %d\n",cnt);
+    if (cnt>3){
+           tim2.attach(callback(&fuck2),1.0f);
+    }
+    cnt=0;
+}
+
+int main() {
+   ledb=1;
+   printf("hello\n");  
+   tim1.attach(callback(&fuck),1.5f);    // part a ,b için red led
+   tim11.attach(callback(&fuck3),0.3f);  // blue için part c
+   while(1){
+       printf("red counter:%d\n",cnt1);
+       if(cnt1>=5){
+           ledr=!ledr;
+           cnt1=0;
+       }
+       wait_ms(300);
+   }
+   wait_ms(osWaitForever);
+}

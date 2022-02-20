@@ -1,0 +1,281 @@
+
+
+
+
+
+
+benimki
+
+#include "mbed.h"
+DigitalOut ledr(p5);
+DigitalOut ledb(p6);
+DigitalOut ledy(p7);
+InterruptIn buton(p8);
+Ticker timertic;
+Timeout timerout;
+int countbuton=0,counttimer=0;
+void buttoncounter(){
+    countbuton++;
+}
+void blueled(){
+    ledb=0;
+}
+void yellowled(){
+    ledy=0;
+}
+void timerticfunc(){
+    counttimer++;
+    printf("counttimer:%d\n",counttimer);
+    buton.rise(callback(&buttoncounter));
+    
+    if(counttimer==5){
+        counttimer=0;
+        ledr=!ledr;
+        if(countbuton==2){
+            timerout.attach(callback(&blueled),0.5f);
+        }
+        else if(countbuton==3){
+            timerout.attach(callback(&yellowled),0.5f);
+        }
+        printf("     countbuton:%d\n",countbuton);
+        countbuton=0;
+        ledb=1;
+        ledy=1;
+    }
+}
+int main(){
+    ledb=1;
+    ledy=1;
+    printf("hello\n");
+    timertic.attach(callback(&timerticfunc),0.3f); 
+}
+
+
+
+
+
+
+
+
+benimki 2.deneme 
+
+#include "mbed.h"
+
+DigitalOut ledr(p5);
+DigitalOut ledb(p6);
+DigitalOut ledy(p7);
+InterruptIn buton(p8);
+Ticker timertic;
+Timeout timerout;
+int countbuton=0,counttimer=0;
+void buttoncounter(){
+    countbuton++;
+}
+/*
+void blueled(){
+    ledb=0;
+}
+void yellowled(){
+    ledy=0;
+}
+*/
+void blueyellow(){
+    extern int countbuton;
+    if(countbuton==2){
+        ledb=0;
+        countbuton=0;
+    }else if(countbuton==3){
+        ledy=0;
+        countbuton=0;
+    }
+}
+void timerticfunc(){
+    extern int countbuton;
+    counttimer++;
+    printf("counttimer:%d\n",counttimer);
+    buton.rise(callback(&buttoncounter));
+    
+    if(counttimer==5){
+        counttimer=0;
+        ledr=!ledr;
+        if(countbuton==2){
+            timerout.attach(callback(&blueyellow),0.5f);
+        }
+        else if(countbuton==3){
+            timerout.attach(callback(&blueyellow),0.5f);
+        }
+        printf("     countbuton:%d\n",countbuton);
+        if(countbuton>3 || countbuton==1)
+            countbuton=0;
+        ledb=1;
+        ledy=1;
+    }
+}
+int main(){
+    ledb=1;
+    ledy=1;
+    printf("hello\n");
+    timertic.attach(callback(&timerticfunc),0.3f);
+    
+    
+}
+
+
+
+
+
+
+
+
+emreninki
+
+#include "mbed.h"
+DigitalOut Led1(p5);
+DigitalOut Led2(p6);
+DigitalOut Led3(p7);
+InterruptIn button1(p8);
+
+Ticker timer1;
+Timeout timer2;
+int count_timer=0;
+int count_button=0;
+
+void buttonpush(){
+ 
+    count_button=count_button+1;
+   
+}
+void TimeoutInterrupt(){
+    
+    if(count_button==2){
+          Led2=0;
+        
+        count_button=0;
+    }
+  if(count_button==3){
+      Led3=0;
+       
+      count_button=0;
+  }
+    }
+   
+
+
+void TimerInterrupt(){
+    
+   count_timer=count_timer+1;
+   
+    printf("Counting serial output is %d\n",count_timer);
+   
+    button1.fall(callback(&buttonpush));
+   
+    if(count_timer==5){
+        count_timer=0;
+        Led1=!Led1;
+        
+       
+        if(count_button==2){
+           
+            timer2.attach(callback(&TimeoutInterrupt),0.5f);
+        }
+       
+        if(count_button==3){
+         timer2.attach(callback(&TimeoutInterrupt),0.5f);
+    }
+      printf("Button pressed %d times \n",count_button);
+     if (count_button>3 || count_button==1){
+           count_button=0;
+    
+   
+}
+     Led2=1;
+     Led3=1;
+}
+}
+
+
+int main() {
+   
+    Led2=1;
+    Led3=1;
+   
+    timer1.attach(callback(&TimerInterrupt),0.3f);
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include "mbed.h"
+DigitalOut ledr(p5);
+DigitalOut ledb(p6);
+DigitalOut ledy(p7);
+InterruptIn butr(BUTTON1);
+Ticker timertic;
+Timeout timertim;
+int butcount=0,partacounter=1;
+void partcledb(){
+    ledb=!ledb;
+}
+void partcledy(){
+    ledy=!ledy;
+}
+void partbcounter(){
+    butcount++;
+}
+void part1(){
+    printf("%d\n",partacounter);
+    butr.rise(callback(&partbcounter));
+    if(partacounter==5){
+        partacounter=0;
+        ledr=!ledr;
+        printf("partbcounter:%d\n",butcount);
+        if(butcount==2){
+            timertim.attach(callback(&partcledb),0.5f);            
+        }else if(butcount==3){
+            timertim.attach(callback(&partcledy),0.5f);            
+        }
+        butcount=0;
+        ledy=1;
+        ledb=1;
+    }
+    partacounter++;
+}
+int main() {
+    ledy=1;
+    ledb=1;
+    timertic.attach(callback(&part1),0.3f);    
+    //wait_ms(osWaitForever);    
+}
+
+
+
+
+
+

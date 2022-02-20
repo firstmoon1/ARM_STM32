@@ -1,0 +1,39 @@
+#include "mbed.h"
+
+DigitalOut led1(LED1);
+DigitalOut led2(LED2);
+DigitalOut led3(LED3);
+
+Ticker t1;
+InterruptIn btn(BUTTON1);
+
+int a=1;
+int b=0;
+
+void blink_led1() {
+    printf("Button %d  Ticker %d\n",b, a);
+    a+=1;
+    if(a==5 || b>3){
+        led1 = !led1;
+        a=1;
+        b=0;
+    }
+}
+
+void toggle_led2() {
+    b+=1;
+    if(b==4){
+        led2 = !led2;
+        //b=0;
+    }
+}
+
+
+int main() {
+    printf("Esenlikler\n");
+
+    t1.attach(callback(&blink_led1), 0.5f);
+    btn.fall(callback(&toggle_led2));
+
+    wait_ms(500);
+}

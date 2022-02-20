@@ -1,0 +1,38 @@
+#include "mbed.h"
+
+DigitalOut led1(LED1);
+DigitalOut led2(LED2);
+DigitalOut led3(LED3);
+DigitalOut led4(LED4);
+
+
+InterruptIn btn(BUTTON1);
+
+int a=0;
+
+void toggle_led2() {
+    
+    a+=1;
+    wait_ms(1000);
+    printf("BUTTON1 fall invoked %2d \n",a);
+    if (a==4){
+    led2 = !led2;
+    a=0;
+    }
+    else if (a==6){
+    led4 = !led4;
+    a=0;
+    }
+    a=0;
+}
+
+
+
+int main() {
+
+    printf("Esenlikler\n");
+    
+    btn.fall(callback(&toggle_led2));
+
+    wait_ms(500);
+}

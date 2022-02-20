@@ -1,0 +1,1920 @@
+timerlar peripheral unit unutmayın cpu'dan bağımsız
+peripheral units:
+
+
+a-  What is the long name for CPU stand for in microcontroller literature?
+b-  What does CPU do in the microcontroller?
+c-  What is the main difference between RAM and Flash memory in a microcontroller?
+Solution:
+a=CPU - Central Processing Unit.
+b=CPU coordinates all operations to be performed by the microcontroller.
+c=RAM content vanishes as power is turned off. Flash memory content
+
+
+ADC = analog to digitl conversion
+DAC = digital to analog conversion  1 inciyol dac ,2 inci yol pwm, dac pahalı oldugu için pwm kullanılır 
+DAC ın diger ismide de ZOH yani zero order hold circuitry and pwm yani pulse with modulation
+ZOH da yani DAC da tutulan deger bir sonraki degişime kadar tutulur bu sebeple zoh deniliyor merdiven gibi oluyor sinyaller
+PWM = pulse width modulation  digital -> analog
+UART= universal asynchronous receiver transmitter
+
+6.12.2021
+bilgilendirme:
+	CPU = central processing unit
+	MCU = micro controller unit
+	LED = Light Emitting Diode
+	DİGİTAL I/O or GPIO = general purpose ınput and output unit
+
+	digital ı/o yani input /output anlamı şu dışarıdaki dünyadan 0 yada 1
+sinyal alarak girişlere yada cıkışlara istenen yerlere önceden 
+belirlenen gerilimi saglar.
+
+	reset signal is non avoidable ,so they are called as nonmaskable
+	
+	nvik=nested vector interrupt controller ; olay şu bir işe giriştin tam ortasında
+başka bir iş geldi işin aciliyetine göre secim yapıp bitiriyorsun ikisinide bir sıraya sokarak.
+
+	button.fall(callback(&ebru));
+	callback function = the following function is a callback function dır
+	callback bir functiondır ,içine yazdıgında & ile ,pointer function idir
+function ın kendisini pointer olarak gönderdirdik. ve buna  pointer to a function olarak adlandırılır
+fall yerine rise da yazılabilirdi ama islevi farklı ,bu fall derken active low kuralı gecerli
+rise da ise active high kuralı gecerli	
+  
+
+
+
+interface of a button bilgilendirme yeri
+active high:
+button pressed -> vcc  bilmem ne volt uyguladıgın
+button not pressed -> 0v
+active low:
+button pressed -> 0v
+button not pressed -> vcc  bilmem ne volt uyguladıgın
+
+
+	osWaitForever = bu bir system timer dır ,cpu turn off lasak bile
+ bu system timer cpu yu turn on  yapar ve every second mı ne zamanında check der 
+interrupt var mı diye red led bu yüzden yanıyor , bu bir hata gibi ,stm 32 kartında 
+tanınmıs bu elimizde degil yani ,eger interrupt oldugu zaman cpu yu uyandırır ve 
+functionda ne varsa o yapılır sonra uykuya geri döndürür bu cpu yu.
+
+
+
+
+#include "mbed.h"
+int a = 3;
+int *a_pointer;
+int main() {
+    printf("a value is %d\n", a);
+    printf("\n");
+    a_pointer = &a;
+    printf("a_pointer value is %d\n", *a_pointer);
+    *a_pointer = 5;  
+    printf("a value is %d\n", a);
+    printf("Address pointed by a_pointer is %p\n", (void*)a_pointer);
+    printf("Address of a_pointer itself is %p\n", (void*)&a_pointer);
+    printf("\n");
+    
+    while (1) {
+    wait_ms(500);
+    }
+}
+
+
+
+
+
+#include "mbed.h"
+
+char a[5] = {1,2,3,4,5};
+char *a_pointer;
+
+int main() {
+
+    int count;
+    
+    for(count=0;count<5;count++)
+     printf("array a value at count %d is %d\n", count, a[count]);
+    
+    printf("\n");
+
+    a_pointer = a;
+    printf("a_pointer value is %d\n", *a_pointer);
+    printf("Address pointed by a_pointer is %p\n", (void*)a_pointer);
+    printf("Address of a_pointer itself is %p\n", (void*)&a_pointer);
+    printf("\n");
+
+    a_pointer += 1;
+    printf("a_pointer value is %d\n", *a_pointer);
+    printf("Address pointed by a_pointer is %p\n", (void*)a_pointer);
+    printf("Address of a_pointer itself is %p\n", (void*)&a_pointer);
+    printf("\n");
+
+
+    *a_pointer = 0;
+    printf("a_pointer value is %d\n", *a_pointer);
+    printf("Address pointed by a_pointer is %p\n", (void*)a_pointer);
+    printf("Address of a_pointer itself is %p\n", (void*)&a_pointer);
+    printf("\n");
+
+    for(count=0;count<5;count++)
+     printf("array a value at count %d is %d\n", count, a[count]);
+
+    while (1) {
+    wait_ms(500);
+    }
+}
+
+
+
+
+
+
+
+#include "mbed.h"
+//Global variables
+
+int z = 0xFF;
+int *z_pointer;
+int main() {
+//Local variables
+/*
+int a = 3;
+int *a_pointer;
+*/
+    printf("z value is %d\n", z);
+    printf("\n");
+    z_pointer = &z;
+    printf("z_pointer value is %d\n", *z_pointer);
+    printf("z value is %d\n", z);
+    printf("Address pointed by z_pointer is %p\n", (void*)z_pointer);
+    printf("Address of a_pointer itself is %p\n", (void*)&z_pointer);
+    printf("\n");   
+    /*
+    *a_pointer = 5;
+    printf("a_pointer value is %d\n", *a_pointer);
+    printf("a value is %d\n", a);
+    printf("Address pointed by a_pointer is %p\n", (void*)a_pointer);
+    printf("Address of a_pointer itself is %p\n", (void*)&a_pointer);
+    */
+    while (1) {
+    wait_ms(500);
+    }
+}
+
+
+
+
+
+
+#include "mbed.h"
+
+//unsigned character examples
+
+//unsigned char a=15;
+//unsigned char a=257;
+//unsigned char a=-1;
+
+//representing a hexadecimal number
+//unsigned char a=0x1F;
+
+//signed character examples
+signed char a=127;
+//signed char a=128;
+//signed char a=-1;
+
+//integer examples
+//int a=257;
+//int a=265.35;
+
+//float examples
+//float a=257;
+//float a=265.35;
+
+//ASCII charachters
+//char a='@';
+//char a= 'G';
+//char a= '\n';
+
+int main() {
+    
+    printf("a value in decimal form is %d\n", a);
+    //printf("a value in hexadecimal is 0x%x\n", a);
+    printf("a value in hexadecimal is 0x%X\n", a);
+    //printf("a value is %f\n", a);
+    //printf("a charachter value is %c\n",a);
+    //printf("a charachter value is %s\n",a);
+
+    
+    while (1) {
+    wait_ms(500);
+    }
+}
+
+
+
+
+
+
+
+
+ arkadaş yok ya char mal olanları yazmıyor yazdıramadım a.q
+#include "mbed.h"
+int main() {
+   
+   int a=5,b[]={10,20,30,40};
+   char c[]={1,2,3,4,5},d[]={'A','b','c','d','e'};
+    char f='a',s[]="fuck you";
+    
+    printf("%c \n%s \n%c \n",f,s,s[1]);
+    printf("%d \n%d \n%d \n",a,b[1],c[1] );
+    printf("salak : %s\n",d);
+    printf("mal : %s ",d);
+    printf("mal : %c ",d[0]);
+    while (1) {
+        wait_ms(500);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+ system lab 1
+#include "mbed.h"
+char arr[16];
+int i;
+char *ap;
+int main() {
+    
+    for(i=0;i<16;i++){
+        arr[i]=i+1;
+    }
+    ap=arr;
+    //odd
+    for(i=0;i<16;i++){
+        if( *(ap+i)%2==1 ){
+        //printf("address pointed is %p and its value is %d\n",&ap[i],ap[i]);
+        printf("address pointed is %p and its value is %d\n",(ap+i),*(ap+i) );
+        } 
+    }
+    printf("\n");
+    //even
+    for(i=0;i<16;i++){
+        if( *(ap+i)%2==0 ){
+        //printf("address pointed is %p and its value is %d\n",&ap[i],ap[i]);
+        printf("address pointed is %p and its value is %d\n",(ap+i),*(ap+i) );
+        } 
+    }
+    
+    while (1) {
+        wait_ms(500);
+    }
+}
+
+
+
+
+
+
+
+
+6.12.2021
+bilgilendirme:
+CPU = central processing unit
+MCU = micro controller unit
+LED =Light Emitting Diode
+
+
+interface of a button bilgilendirme yeri
+active high:
+button pressed -> vcc  bilmem ne volt uyguladıgın
+button not pressed -> 0v
+active low:
+button pressed -> 0v
+button not pressed -> vcc  bilmem ne volt uyguladıgın
+
+mbed de button lar  DigitalIut  herhangi bir isim(BUTTON1); olarak cagırılır
+example DigitalIut ebru(BUTTON1);
+
+
+mbed de LED ler  DigitalOut  herhangi bir isim(p...); olarak cagırılır
+example DigitalOut ebru(p5); // secenekler: S p5 p6 p7 ... p30 ,LED1,LED2,LED3,LED4 
+
+
+
+
+
+microprocessor uzerindeki ortadaki button a bastıgında 1 veriyor led yanıyor 
+biraz basılı tut  if else ile yapımı  bu örnek active high örnegi
+#include "mbed.h"
+
+DigitalOut led(LED1);
+DigitalIn button(BUTTON1);
+
+int main() {
+    
+    led=0;
+    while (1) {
+       
+       if (button==1){
+           wait_ms(500);
+           led = 1;
+            printf("Blink! LED is now %d\n", button.read());
+       }else{
+           led = 0;
+            printf("Blink! LED is now %d\n", button.read());
+       }
+        wait_ms(500);
+    }
+}
+
+
+
+
+
+
+yukarıdaki kodun switch case ile yapımı bu örnek active high örnegi
+#include "mbed.h"
+
+DigitalOut ebru(p5);
+DigitalIn ceylan(BUTTON1);
+
+int main(){
+    while(1){
+        
+        switch(ceylan){
+            case 1:
+                ebru=1;
+                break;
+            case 0:
+                ebru=0;
+                break;
+        }
+        wait_ms(500);
+    }
+}
+
+
+
+
+
+
+
+ bu örnek active low örnegi bastıgında söner, basmadıgında mouse e yanar led
+#include "mbed.h"
+
+DigitalOut ebru(p5);
+DigitalIn ceylan(BUTTON1);
+
+int main(){
+    while(1){
+        
+        switch(ceylan){
+            case 0:  // buraya case '1' felan yazarsan hatalı olur error görmezsin ama ledi yakamazsın
+                 /*  //1
+                ebru=1;
+                break;
+                */
+                  //2
+                ebru.write(1);  
+                ebru.read();
+                 break;
+            case 1:
+                /*   //1
+                ebru=0;
+                break;
+                */
+                 //2
+                 ebru.write(0);
+                 ebru.read();
+                  break;
+                
+        }
+        wait_ms(500);
+    }
+}
+
+
+
+
+
+
+
+
+
+ // burda biri yanarken digeri sönüyor ledlerin uygulaması  c c++ şekilleriyle felan
+#include "mbed.h"
+ // 2 inci deneme
+DigitalOut bled(p5);
+DigitalOut rled(p6);
+/*  // 1 inci deneme
+DigitalOut led(LED1);
+DigitalIn button(BUTTON1);
+*/
+int main() {
+    
+    /* // 2inci deneme
+    bled=0;
+    rled=1;
+    rled.read(); // c++ daki yazım şekli
+    bled.read();
+    */
+    
+    while(1){
+        /*  // 2 inci deneme ,buda c programa dahil aslında ha rled=0 sonra rled=1 yapmıssın fark etmiyor  
+        rled=!rled;  // 1 iken 0 , 0 iken 1 yapıyor  
+        //rled.read(); // bu rled.read() yada bled.read() yazmasan bile led ler calışıyor
+			// her yakma sondürme arasına felan wait_m(500) yazıyoruz 
+   			// cünkü işlem cok hızlı oluyor ve göremiyoruz, görelim diye wait yazıyoruz
+        wait_ms(500);
+        bled=!bled;
+        //bled.read();
+        wait_ms(500);
+        */
+        
+        /*   //2 inci deneme , c++ ile yapılma şekli write and read olayı
+        rled.write(0);
+        rled.read();
+        bled.write(1);
+        bled.read();
+        wait_ms(500);
+        bled.write(0);
+        rled.write(1);
+        rled.read();
+        bled.read();
+        wait_ms(500);
+        */
+          // yada  aşagıdaki gibi aynı şey  yukarıdaki c++  ,aşagıdaki c için
+       /* // 2 inci deneme
+        rled=1;
+        bled=0;
+        wait_ms(500);
+        rled=0;
+        bled=1;
+        wait_ms(500); */
+    }
+    
+    
+    /*  // 1 inci deneme
+    led=0;
+    while (1) {
+       
+       if (button==1){
+           wait_ms(500);
+           led = 1;
+            printf("Blink! LED is now %d\n", button.read());
+       }else{
+           led = 0;
+            printf("Blink! LED is now %d\n", button.read());
+       }
+        wait_ms(500);
+    }
+    */
+}
+
+
+
+
+
+
+
+
+// butona bastıgımda led yanıyor ,butona basmadıgımda led sönüyor
+#include "mbed.h"
+DigitalOut rled(p5);
+DigitalIn but1(BUTTON1);
+int main(){
+    
+    while(1){
+        if(but1==1){
+            rled=1;
+            printf("condition of but1: %d\n",but1.read()); // bu1.read() yerine but1 yazdım hata verdi
+        }else{
+            rled=0;
+           printf("condition of but1: %d\n",but1.read());
+        }
+        wait_ms(500);
+    } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+amaç şu ,butona bastıgında  iki led de yansın ,butona basmadıgında degişmeli yanıp sönsünler
+KOD calışıyor
+#include "mbed.h"
+DigitalOut led1(LED1);
+DigitalOut led2(LED2);
+DigitalIn but(BUTTON1);
+
+int main() {
+    while (1) {
+        
+        switch (but){
+            case 0:
+                led1=0;
+                led2=1;
+                while(1){
+                    led1=!led1;
+                    led2=!led2;
+                    if(but==1){
+                        break;
+                    }
+                }
+                break;
+            case 1:
+                led1=1;
+                led2=1;
+                break;
+        }
+        wait_ms(500);
+    }
+}
+
+
+
+
+
+
+
+
+13.12.2021
+#include "mbed.h"
+
+DigitalIn push_button(p5);
+
+DigitalOut AC_control(p6);
+
+int AC_function(int push_button){
+    if (push_button==0)
+        AC_control=1;
+    else
+        AC_control=0;
+        return 0;
+}
+
+int main() {
+
+    while (1) {
+
+    AC_function(push_button.read());
+
+    wait_ms(500);
+    }
+}
+
+
+
+
+
+
+functionda switch ile led yakma
+#include "mbed.h"
+
+DigitalOut led1(p5);
+DigitalIn s(p6);
+
+void fuck(void){
+    if(s==1){
+        //led1=1; // alttaki ile aynı iş yani
+        led1.write(1);
+        
+    }else{
+        //led1=0;
+        led1.write(0);
+    }
+    
+}
+int main() {
+    while (1) {
+       fuck();
+        wait_ms(500);
+    }
+}
+
+
+
+
+
+
+
+
+functionda button ile led yakma söndürme active low bastıgında butona led söner 
+
+#include "mbed.h"
+DigitalOut led1(p5);
+DigitalIn but(p6);
+
+void fuck(void){
+    if(but==0){
+        //led1=1;
+        led1.write(1);
+        
+    }else{
+        //led1=0;
+        led1.write(0);
+    }
+    
+}
+int main() {
+    while (1) {
+       fuck();
+        wait_ms(500);
+    }
+}
+
+
+
+
+
+
+
+interrupt a örnek  burda butona basıyorsun yanıyor elini ceksende butondan hala yanar
+taaki tekrar basana kadar ,ya bu kmout bekler,wait_ms(osWaitForever); felan zorunlu 
+
+#include "mbed.h"
+
+DigitalOut led(p5);
+InterruptIn but(p6);
+
+void fuck(){
+    led=!led;
+}
+int main() {
+   
+   but.fall(callback(&fuck));
+    wait_ms(osWaitForever);
+}
+
+
+
+
+
+
+
+kendimce deneme yaptım ,function a gönderme öyle
+#include "mbed.h"
+// 2:
+void fuck(DigitalOut led,DigitalIn but){
+    if(but==0){
+        led.write(1);
+    }else{
+        led=0;
+    }    
+}
+/*  // 1:
+void fuck(DigitalOut led,int but){
+    if(but==0){
+        led.write(1);
+    }else{
+        led=0;
+    }   
+}
+*/
+int main() {
+    DigitalOut led(LED1);
+    DigitalIn but(BUTTON1);
+    while (1) {
+      fuck(led,but);  // 2:
+      // fuck(led,(int)but); // 1 : bu şekildede calıştı  ,led içinde char,int felan denedim hata aldım
+        wait_ms(500);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+burada p5 yanıp sönücek yanıp sönücek , p6 butona basıtıgımızda yanıcak bir daha bastıgımızda sönücek 
+interrupt a bir örnek fall ın olayı bu butona bastıgında logic 1 verir calıştırır.
+rise yazsaydık fall yerine ,bu seferde butona bastın bir şey yok ,butondan elini cektin blue ya yanar ya söner
+ikisinden biri olur active high rule.
+oswaitforever de  bu interrupt i cagırmak için cpu uykuya giriyor while de taki biz butona basana kadar
+butona basınca but.fall(...); cagırıyor ordan function ,sonra tekrar uykuya dalıyor taki bu function tekrar cagrılacana kadar 
+yani butona basılana kadar
+
+
+	osWaitForever = bu bir system timer dır ,cpu turn off lasak bile
+ bu system timer cpu yu turn on  yapar ve every second mı ne zamanında check der 
+interrupt var mı diye red led bu yüzden yanıyor , bu bir hata gibi ,stm 32 kartında 
+tanınmıs bu elimizde degil yani ,eger interrupt oldugu zaman cpu yu uyandırır ve 
+functionda ne varsa o yapılır sonra uykuya geri döndürür bu cpu yu.
+*/
+
+
+#include "mbed.h"
+
+DigitalOut ledr(p5);
+DigitalOut ledb(p6);
+InterruptIn but(BUTTON1);
+
+void ebru(){
+    ledb=!ledb;
+}
+int main(){
+        
+    but.fall(callback(&ebru));
+    while(1){
+        ledr=!ledr;
+        wait_ms(osWaitForever);
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+yukarıdaki örnegin aynısı bu hocanınki
+#include "mbed.h"
+
+DigitalOut led(LED1);
+
+InterruptIn button(BUTTON1); //interrupt source, setup step
+
+// Response to the interrupt
+// Interrupt Service Routine (ISR)
+// Interrupt callback function
+void toggle_led() {
+    printf("Interrupt has occured, we are now serving it.\n");
+    led = !led;
+}
+
+
+int main() {
+
+    //Interrupt setup has been done.
+    
+    //associate the hardware part and software part
+    //when the button is pressed, execute the function named "toggle_led"
+    button.fall(callback(&toggle_led));
+    
+    //the CPU goes to the deep sleep mode.
+    wait_ms(osWaitForever);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+burda butona bastın hala basılı tutuyorsun ve p5 yandı  ve p6 sönük ,simdi elini butondan kaldırdın 
+ve p6 yandı  sonuc olarak 1 basış ve cekişte p5 ve p6 yandı şimdi bir daha bastım hala basılı tutuyorum
+p5 söndü ,p6 yanıyor hala ,elimi cektim p6 da sondü
+interrupts ad low power mod operations are used together,
+*/
+
+#include "mbed.h"
+
+DigitalOut ledr(p5);
+DigitalOut ledb(p6);
+InterruptIn but(BUTTON1);
+
+void ebru(){
+    ledb=!ledb;
+}
+void ceylan(){
+    ledr=!ledr;
+}
+int main(){
+        
+    but.fall(callback(&ebru));
+    but.rise(callback(&ceylan));
+     wait_ms(osWaitForever);
+    /* // bu while içinde yazmaya gerek yok  amaçta bu zaten cpu while(1) {} la sonsuz döngüye girip 
+    // sonsuza kadar calışmasın ,wait_ms(osWaitForever) ile cpu yu uykuya sokuyoz interrupt oldugunda
+    // uyanıyor
+    while(1){
+        wait_ms(osWaitForever);
+    }
+    */
+    
+}
+
+
+
+
+
+
+
+
+
+22.12.2021 ,lab quizi interruptlı hali 
+4 kere bastıktan 200ms sonra ledr yansın  , 6kere bastıntan sonra ledb 800 ms sonra yansın
+
+#include "mbed.h"
+
+DigitalOut ledr(p5);
+DigitalOut ledb(p6);
+InterruptIn a1(p9);
+InterruptIn a2(p10);
+int c=0,c1=0;
+
+void fuckr(){
+    c++;
+    if(c==4){
+    wait_ms(200);
+    ledr=1;
+    c=0;
+    }
+}
+void fuckb(){
+    c1++;
+    if(c1==6){
+    wait_ms(800);
+    ledb=1;
+    c1=0;
+    }
+}
+int main() {
+    ledr=0;
+    ledb=0;
+    // a1 =red led  p9,  a2=blue led  p10, 
+    a1.rise(callback(&fuckr));
+    a2.rise(callback(&fuckb));
+    wait_ms(osWaitForever);
+}
+
+
+
+
+
+
+
+22.12.2021 ,lab quizi interruptsız hali 
+#include "mbed.h"
+
+DigitalOut ledr(p5);
+DigitalOut ledb(p6);
+DigitalIn b1(p7); // red 
+DigitalIn b2(p8); // blue
+int main() {
+    ledr=0;
+    ledb=0;
+    int c=0,c1=0;
+    while (1) {       
+        if(b1==1){
+            c++;
+             printf("c: %d\n",c);
+            if(c==4){
+                c=0;
+                wait_ms(200);
+                ledr=1;
+                wait_ms(500);
+                ledr=0;   
+            }          
+        }
+         if(b2==1){
+            c1++;
+            printf("c1: %d\n",c1);
+            if(c1==6){
+                c1=0;
+                wait_ms(800);
+                ledb=1;
+                wait_ms(500);
+                ledb=0;
+            }
+        }       
+     wait_ms(500);
+    }
+} 
+
+
+
+
+
+
+
+
+
+
+timer konusuna girdik , 27.12.2021
+/*  
+
+Ticker: sets the timer ,zaman koyma modulu and this timer generates interrupts
+ her 2 sn de interrupt yapıcak
+
+attach: bunun olayını bilmiyorum baglayıcı gibi bir şey herhalde 
+
+0.2 nin olayı: ,zamanı belirliyoruz ,2 sn yani
+*/
+#include "mbed.h"
+
+DigitalOut led(LED1);
+Ticker ebru;
+void fuck(){
+    led=!led;
+}
+
+int main() {
+   
+   ebru.attach(callback(&fuck),0.2f);  
+   
+   wait_ms(osWaitForever);
+}
+
+
+
+
+
+
+
+#include "mbed.h"
+
+DigitalOut led1(LED1);
+DigitalOut led2(LED2);
+Ticker ebru;
+Ticker ceylan;
+
+void fuck(){
+    led1=!led1;
+}
+void fuck1(){
+    led2=!led2;
+}
+
+int main() {
+   
+   ebru.attach(callback(&fuck),0.2f);    // 2sn de bir  fuck gidip gelir
+   ceylan.attach(callback(&fuck1),0.1);  // 1 sn de bir fuck1 e gidip gelir
+      
+   wait_ms(osWaitForever);
+}
+
+
+
+
+
+
+
+/*
+Ticker: sets the timer ,zaman koyma modulu and this timer generates interrupts
+ her 2 sn de interrupt yapıcak
+
+attach: bunun ile timer i attach ediyoruz  baglıyoruz yani
+
+0.2 nin olayı: ,zamanı belirliyoruz ,2 m.saniye yani
+*/
+#include "mbed.h"
+
+DigitalOut led1(LED1);
+DigitalOut led2(LED2);
+Ticker ebru;
+Ticker ceylan;
+
+void fuck(){
+    led1=!led1;
+}
+void fuck1(){
+    led2=!led2;
+}
+
+int main() {
+   
+   ebru.attach(callback(&fuck),0.2f);    // 2 milisaniye de bir  fuck gidip gelir
+   ceylan.attach(callback(&fuck1),2);  //2 sn mi ne de bir fuck1 e gidip gelir
+      
+   wait_ms(osWaitForever);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+Ticker: bu ölmez sürekli user in istedigi süre kadar bekler calışır, biter sonra tekrar bekler
+ tekrar calışır felan ,
+ sets the timer ,zaman koyma modulu and this timer generates interrupts
+ her 2 sn de interrupt yapıcak
+
+attach: bunun ile timer i attach ediyoruz  baglıyoruz yani
+
+Timeout: user in istedigi kadar bekler sonra interrupt eder ve ölür , daha da gelmez resetlemen felan lazım
+
+
+*/
+#include "mbed.h"
+
+
+DigitalOut ledr(p5);
+DigitalOut ledb(p6);
+Timeout blue;
+Ticker red;
+
+void fuck(){
+    ledb=!ledb;
+}
+
+void fuck1(){
+    ledr=!ledr;
+}
+int main() {
+    // blue =timeout  ,ticker =red
+   blue.attach(callback(&fuck),2.5);   // 1 kez calışıp bitti ,ölür yani resetleyene kadar öyle kalır ,ledb = 0 dı 1 kez calıştı 1 oldu hep yanık kaldı
+   red.attach(callback(&fuck1),1.5);    //led1 sürekli calışıyor
+      
+   wait_ms(osWaitForever);
+}
+//led1 sürekli calışıyor
+
+
+
+
+
+
+
+
+
+
+
+#include "mbed.h"
+
+DigitalOut ledr(p5);
+DigitalOut ledb(p6);
+InterruptIn  but1(p7);
+InterruptIn but2(p8);
+// DigitalIn 
+void fuckr(){
+    ledr=!ledr;
+}
+void fuckb(){
+    ledb=!ledb;
+}
+
+int main() {
+   but1.rise(callback(&fuckr));  // red      rise   p7
+   but2.fall(callback(&fuckb));  // blue     fall   p8 
+}
+
+// rise ,butona bastın  ledr yanar , fall= butondan elini cektin ledb yanar 
+
+
+
+
+
+
+
+
+
+
+
+#include "mbed.h"
+
+DigitalOut ledr(p5);
+DigitalOut ledb(p6);
+InterruptIn b1(p7); // red 
+InterruptIn b2(p8); // blue
+ int c=0;
+void fuckr(){
+
+     c++;
+             printf("c: %d\n",c);
+            if(c==4){
+                c=0;
+                ledr=!ledr;  
+            }          
+}
+
+void fuckb(){
+
+     c++;
+            printf("c: %d\n",c);
+            if(c==6){
+                c=0;
+               ledb=!ledb;
+            }
+}
+
+
+
+int main() {
+     b1.rise(callback(&fuckr));
+     b2.rise(callback(&fuckb));
+}
+
+
+
+
+
+
+
+
+
+
+#include "mbed.h"
+
+DigitalOut ledr(p5);
+DigitalOut ledb(p6);
+DigitalIn br(p7);
+DigitalIn bb(p8);
+
+int main() {
+    int c=0,c1=0;
+    while (1) {
+        //printf("c:%d\n",c);
+         
+         
+        if(br==1){
+            c++;
+            printf("c:%d\n",c);
+        }
+            if(c==2){
+                ledr=!ledr;
+                c=0;
+            }
+        if(bb==1){
+            c1++;
+            printf("c1:%d\n",c1);
+        }
+            if(c1==4){
+                ledb=!ledb;
+                c1=0;
+            }
+        
+        wait_ms(100);
+        
+    }
+}
+
+
+
+
+
+
+lab 3 question part b
+#include "mbed.h"
+
+DigitalOut ceylan(p5);
+DigitalOut omur(p6);
+InterruptIn ass(p7);
+int ebru=0;
+
+void fuck(){
+    ebru++;
+}
+int main() {
+    
+    ass.rise(callback(&fuck));
+    
+    while (1) {
+        ebru=0;  
+        printf("count 0\n");
+        wait_ms(2000);
+        
+        if(ebru==3){
+            for(int i=0;i<3;i++){
+                ceylan=!ceylan;
+                wait_ms(300);
+            }
+        }else if(ebru==5){
+            for(int i=0;i<5;i++){
+                omur=!omur;
+                wait_ms(300);
+            }
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+3.1.2022 
+
+#include "mbed.h"
+
+DigitalOut led1(p5);
+DigitalOut led2(p6);
+
+InterruptIn btn(BUTTON1);
+
+Timeout timer_interrupt;
+
+char value=0;
+
+void button_ISR() {
+    extern char;
+    led1 = !led1;
+    value=1;
+}
+
+
+void turn_led_on() {
+    printf("Timeout fired\n");
+    led2 = 1;
+}
+
+int main() {
+
+    btn.fall(callback(&button_ISR));
+    
+
+    while(1)
+    {
+    printf("value %d \n", value);
+    if (value==1)
+    {
+    timer_interrupt.attach(callback(&turn_led_on), 2.5f);
+    value=0;
+    }
+    
+    wait_ms(500);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include "mbed.h"
+
+DigitalOut led_red(p5);
+DigitalOut led_blue(p6);
+
+Timeout TimeoutDelay;
+Ticker Ticker1;
+Ticker Ticker2;
+
+void toggle_red() {
+    led_red = !led_red;
+}
+
+void toggle_blue() {
+    led_blue = !led_blue;
+}
+
+void delay25() {
+   toggle_red();
+   Ticker1.attach(callback(&toggle_red), 1.0f);
+}
+
+int main()
+{
+    TimeoutDelay.attach(callback(&delay25), 2.5f);
+    Ticker2.attach(callback(&toggle_blue), 1.0f);
+    
+    wait_ms(osWaitForever);
+}
+
+
+
+
+
+
+
+
+
+#include "mbed.h"
+ 
+//https://www.epochconverter.com/ 
+//https://www.unixtimestamp.com/index.php
+ 
+int main() {
+    set_time(1609912393);  // Set RTC time to Wed, 6 January 2021 8:50
+ 
+    while (true) {
+        time_t seconds = time(NULL);
+        
+        printf("Time as seconds since January 1, 1970 = %d\n", seconds);
+        
+        printf("Time as a basic string = %s", ctime(&seconds));
+ 
+        char buffer[32];
+        strftime(buffer, 32, "%I:%M %p\n", localtime(&seconds));
+        printf("Time as a custom formatted string = %s", buffer);
+        
+        wait(1);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+5.01.2022 lab
+
+#include "mbed.h"
+DigitalOut led(p5);
+InterruptIn but(p6);
+Ticker tim;
+int co=0;
+void fuck(){
+    co++;
+}
+void tic(){
+        printf("%d\n",1);
+        wait_ms(500);
+        printf("%d\n",2);
+        wait_ms(500);
+        printf("%d\n",3);
+        wait_ms(500);
+        printf("%d\n",4);
+        wait_ms(500);
+    
+    //printf("\n");
+}
+int main() {
+   but.rise(callback(&fuck));
+   tim.attach(callback(&tic),2.0f); 
+   while(1){
+   if(co>=3) {
+       printf("co: %d\n",co);
+       led=!led;
+   }
+   co=0;
+   wait_ms(osWaitForever);
+   }   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include "mbed.h"
+ 
+AnalogIn   ain(p15);
+ 
+int main(void)
+{
+
+    float av_float;
+    unsigned int av_int;
+
+    while (true) {
+
+        // normalized value
+        av_float=ain.read();
+        //16-bit value
+        av_int=ain.read_u16();
+
+        printf("normalized: %.6f\n", av_float);
+        printf("16-bit unsigned: 0x%04X \n", av_int);
+        wait_ms(200);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+#include "mbed.h"
+
+DigitalOut led(LED1);
+AnalogIn ain(p15);
+
+int main() {
+    
+    while (1) {
+        if(ain>0.3f)
+            led=1;
+        else
+            led=0;
+        printf("16 bit unsigned : 0x%04x\n",ain.read_u16());
+        printf("normalized : %6f\n",ain.read());
+        
+        wait(0.2f);
+    }
+}
+
+
+
+
+
+
+
+deneme timerlar iler
+#include "mbed.h"
+
+Ticker timer;
+
+void fuck(){
+    printf("hello1\n");
+    wait_ms(1000);
+    printf("hello2\n");
+    wait_ms(1000);
+    printf("hello3\n");
+    wait_ms(1000);
+}
+
+int main() {
+  printf("hello\n");
+  timer.attach(callback(&fuck),2.0f);
+  wait_ms(osWaitForever); 
+}
+ herhalde bu timer da kafamızın takıldıgı soruya cevaptır 
+,int mainde 2 sn bekliyor sonra fuck functionina gidiyor ordaki işlemleri 
+gercekleştirirken süre hala sayıyor ,hello3 ü hiç yazdırmıyor   functionda 
+,2 sn yeye kadar ne yaparsan artık
+
+
+
+
+
+
+
+
+
+son lab deneme öyle 
+/*
+#include "mbed.h"
+
+DigitalOut led(LED1);
+DigitalOut led1(LED2);
+InterruptIn but(BUTTON1);
+Ticker timker;
+Timeout timout;
+
+int cntt=0,cntb=0;
+void led1switch(){
+    led1=!led1;
+}
+void countbutton(){
+    extern int cntt,cntb;
+    cntb++;
+}
+
+void timercounter(){
+    extern int cntt,cntb;
+    cntt++;
+    printf("cntt:%d\n",cntt);
+    but.rise(callback(&countbutton));
+    if(cntt==5){
+        cntt=0;
+        led=!led;
+        if(cntb==2){
+            timout.attach(callback(&led1switch),0.5);
+        }
+        printf("       cntb:%d\n",cntb);
+        cntb=0;
+        
+    }
+    
+}
+int main() {
+    printf("hello\n");
+    timker.attach((&timercounter),0.3f);
+    //wait_ms(osWaitForever);
+}
+*/
+
+
+
+
+/*
+
+#include "mbed.h"
+
+DigitalOut led(LED1);
+DigitalOut led1(LED2);
+InterruptIn but(BUTTON1);
+Ticker timker;
+Timeout timout;
+
+int cntt=0,cntb=0;
+void countbutton(){
+    extern int cntt,cntb;
+    cntb++;
+    if(cntb==5){
+        led1=!led1;
+     }
+}
+
+void timercounter(){
+    extern int cntt,cntb;
+    cntt++;
+    printf("cntt:%d\n",cntt);
+    but.rise(callback(&countbutton));
+    if(cntt==5){
+        cntt=0;
+        led=!led;
+        printf("led is switched\n");
+        printf("       cntb:%d\n",cntb);
+        cntb=0;
+    }
+    
+}
+int main() {
+    printf("hello\n");
+    timker.attach((&timercounter),0.3f);
+    //wait_ms(osWaitForever);
+}
+
+*/
+
+
+
+
+
+
+
+lab 3 deneme
+buttoncounter içindeki if de 2 oldumu yanar söner ,4 sn sonunda while içinde
+3 veya 4 den biri yanar söner ,mantık şu  4 sn bekliyor sonunda kaç defa
+bastıysan o kadar ile devam ediyor 4  ise while de 4 sn sonra led2 yanar
+
+
+#include "mbed.h"
+
+DigitalOut led(LED1);
+DigitalOut led1(LED2);
+DigitalOut led2(LED3);
+InterruptIn but(BUTTON1);
+Ticker timker;
+Timeout timout;
+
+int cntt=0,cntb=0;
+
+void buttoncunter(){
+    extern int cntb;
+    cntb++;
+    if(cntb==2){
+        led=!led;
+    }    
+}
+int main() {
+    printf("hello\n");
+    but.rise(callback(&buttoncunter));   
+    while(1){
+        wait_ms(4000);
+        printf("cntb: %d\n",cntb);
+        if(cntb==3){
+            led1=!led1;
+        }
+        if(cntb==4){
+            led2=!led2;
+        }
+        cntb=0;                
+    }    
+}
+
+
+
+
+
+
+
+
+#include "mbed.h"
+
+DigitalOut led_red(p5);
+DigitalOut led_blue(p6);
+
+Timeout TimeoutDelay;
+Ticker Ticker1;
+Ticker Ticker2;
+
+void toggle_red() {
+    led_red = !led_red;
+}
+
+void toggle_blue() {
+    led_blue = !led_blue;
+}
+
+void delay25() {
+   toggle_red();
+   Ticker1.attach(callback(&toggle_red), 1.0f);
+}
+
+int main()
+{
+    TimeoutDelay.attach(callback(&delay25), 2.5f);
+    Ticker2.attach(callback(&toggle_blue), 1.0f);
+    
+    wait_ms(osWaitForever);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#include "mbed.h"
+ 
+AnalogIn   ain(p15);
+ 
+int main(void)
+{
+
+    float av_float;
+    unsigned int av_int;
+
+    while (true) {
+
+        // normalized value
+        av_float=ain.read();
+        //16-bit value
+        av_int=ain.read_u16();
+
+        printf("normalized: %.6f\n", av_float);
+        printf("16-bit unsigned: 0x%04X \n", av_int);
+        wait_ms(200);
+    }
+}
+
+
+
+
+
+
+
+
+#include "mbed.h"
+ 
+// Initialize pins to perform analog input and digital output fucntions
+AnalogIn   ain(p15);
+DigitalOut dout(p5);
+ 
+int main(void)
+{
+    while (1) {
+        // test the voltage on the initialized analog pin
+        //  and if greater than 0.3 * VCC set the digital pin
+        //  to a logic 1 otherwise a logic 0
+        if(ain > 0.3f) {
+            dout = 1;
+        } else {
+            dout = 0;
+        }
+        
+        // print the percentage and 16 bit normalized values
+        printf("percentage: %3.3f%%\n", ain.read()*100.0f);
+        printf("normalized: 0x%04X \n", ain.read_u16());
+        wait(0.2f);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include "mbed.h"
+
+PwmOut led(p5);
+
+InterruptIn button(BUTTON1);
+int duty_cycle = 0;
+
+void increase_duty_cycle(){
+	duty_cycle = duty_cycle + 100;
+	if (duty_cycle > 1000) duty_cycle = 0;
+	led.pulsewidth_us(duty_cycle);	
+}
+
+
+int main() {
+
+    while(true) {
+    button.rise(callback(&increase_duty_cycle));
+    led.period_ms(1);
+    led.pulsewidth_us(duty_cycle);
+
+    printf("LED is now %.2f\n", led.read());
+    wait_ms(200);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include "mbed.h"
+
+// Initialize a pins to perform analog and digital output fucntions
+AnalogOut  aout(p5);
+DigitalOut dout(p6);
+
+int main(void)
+{
+    while (1) {
+        // change the voltage on the digital output pin by 0.1 * VCC
+        //  and print what the measured voltage should be (assuming VCC = 3.3v)
+        for (float i = 0.0f; i < 1.0f; i += 0.1f) {
+            aout = i;
+            printf("aout = %1.2f volts\n", aout.read() * 3.3f);
+            // turn on the led if the voltage is greater than 0.5f * VCC
+            dout = (aout > 0.5f) ? 1 : 0;
+            wait(1.0f);
+        }
+    }
+}
+
+
+
+
+
+
+
+//digital to analog
+#include "mbed.h"
+
+AnalogIn ain(p15);
+PwmOut led(p5);
+int main() {
+    while (1) {
+        led=ain;
+        printf("led:%.2f\n",led.read());
+        wait_ms(200);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+deneme yaptım  timer interrupt ve analog->digital ordanda tekrar -> analog
+
+#include "mbed.h"
+
+AnalogIn ain(p15);
+PwmOut led(p5);
+InterruptIn but(p7);
+Ticker tim1;
+Timeout tim2;
+void fuck(){
+    led=ain;
+    printf("led:%.2f\n",led.read());    
+}
+void butinter(){
+    if (ain>0.5){
+        printf("hello1\n");
+        tim2.attach(callback(&fuck),0.2f);
+    }else{
+        led=ain;
+    } 
+} 
+int main() {
+    printf("hello\n");
+    but.rise(callback(&butinter));   
+    wait_ms(osWaitForever);
+}
+
+
+
+
+
+
+
+
+
+
+
+1 yukarıda örnekten türettim yanıcak sonra sonucek
+timer interrupt,analog,PwmOut, analog->digital ->analog 
+
+#include "mbed.h"
+AnalogIn ain(p15);
+PwmOut led(p5);
+InterruptIn but(p7);
+Ticker tim1;
+Timeout tim2;
+void fuck(){
+    led=ain;
+    printf("led:%.2f\n",led.read());
+    wait_ms(500);
+    led=0;  
+}
+void butinter(){  
+        printf("hello1\n");
+        tim2.attach(callback(&fuck),0.2f);
+} 
+int main() {
+    printf("hello\n");
+    but.rise(callback(&butinter));    
+    wait_ms(osWaitForever);
+}
+
+
+
+
+
