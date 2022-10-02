@@ -1,0 +1,10 @@
+16:38:35 **** Incremental Build of configuration Debug for project 000_001_buton_exti_adc_dac_timer ****
+make -j4 all 
+arm-none-eabi-size   000_001_buton_exti_adc_dac_timer.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11548	     20	   1748	  13316	   3404	000_001_buton_exti_adc_dac_timer.elf
+Finished building: default.size.stdout
+ 
+
+16:38:35 Build Finished. 0 errors, 0 warnings. (took 578ms)
+

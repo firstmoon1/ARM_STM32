@@ -1,0 +1,10 @@
+15:44:50 **** Build of configuration Debug for project 006_hal_adc_interrupt_mode ****
+make -j4 all 
+arm-none-eabi-size   006_hal_adc_interrupt_mode.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8684	     20	   1644	  10348	   286c	006_hal_adc_interrupt_mode.elf
+Finished building: default.size.stdout
+ 
+
+15:44:51 Build Finished. 0 errors, 0 warnings. (took 719ms)
+

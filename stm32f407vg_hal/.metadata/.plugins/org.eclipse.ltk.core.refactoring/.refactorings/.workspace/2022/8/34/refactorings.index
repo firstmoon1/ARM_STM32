@@ -1,0 +1,7 @@
+1660758353231	Rename resource '006_hal_adc_multi_gercek_voltag'
+1660759185878	Rename resource '006_adc_multi'
+1660759957325	Rename resource '006_hal_adc_multi'
+1660846779246	Rename resource '005_hal_interrupt_single_and_multi'
+1660847562090	Rename resource '005_hal_interrupt_multi'
+1660848395339	Delete resource '005_hal_interrupt_single_and_multi/Debug/005_hal_interrupt_multi.elf'
+1660848406930	Delete resource '005_hal_interrupt_single_and_multi/005_hal_interrupt_multi Debug.launch'

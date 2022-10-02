@@ -1,0 +1,10 @@
+21:32:00 **** Incremental Build of configuration Debug for project 005_hal_interrupt_multi ****
+make -j4 all 
+arm-none-eabi-size   005_hal_interrupt_multi.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6512	     20	   1580	   8112	   1fb0	005_hal_interrupt_multi.elf
+Finished building: default.size.stdout
+ 
+
+21:32:01 Build Finished. 0 errors, 0 warnings. (took 719ms)
+

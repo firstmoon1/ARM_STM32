@@ -1,0 +1,17 @@
+16:55:53 **** Incremental Build of configuration Debug for project 008_6_hal_timer_slave_trigger_mode ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "008_6_hal_timer_slave_trigger_mode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\ilkay\STM32CubeIDE\muho_kose\008_6_hal_timer_slave_trigger_mode\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="008_6_hal_timer_slave_trigger_mode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 008_6_hal_timer_slave_trigger_mode.elf
+ 
+arm-none-eabi-size   008_6_hal_timer_slave_trigger_mode.elf 
+arm-none-eabi-objdump -h -S  008_6_hal_timer_slave_trigger_mode.elf  > "008_6_hal_timer_slave_trigger_mode.list"
+   text	   data	    bss	    dec	    hex	filename
+   8896	     20	   1644	  10560	   2940	008_6_hal_timer_slave_trigger_mode.elf
+Finished building: default.size.stdout
+ 
+Finished building: 008_6_hal_timer_slave_trigger_mode.list
+ 
+
+16:55:56 Build Finished. 0 errors, 0 warnings. (took 3s.681ms)
+
