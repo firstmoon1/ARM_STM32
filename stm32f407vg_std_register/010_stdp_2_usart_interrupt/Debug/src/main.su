@@ -1,0 +1,6 @@
+main.c:7:6:gpio_conf	16	static
+main.c:26:6:usart_conf	24	static
+main.c:45:6:nvic_conf	16	static
+main.c:58:6:usart_send_function	16	static
+main.c:70:6:USART2_IRQHandler	16	static
+main.c:91:5:main	8	static
