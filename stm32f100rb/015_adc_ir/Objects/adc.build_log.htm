@@ -1,0 +1,168 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.37.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: sd ilkay, as, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.37.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.18
+Assembler:       Armasm.exe V6.18
+Linker/Locator:  ArmLink.exe V6.18
+Library Manager: ArmAr.exe V6.18
+Hex Converter:   FromElf.exe V6.18
+CPU DLL:         SARMCM3.DLL V5.37.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      UL2CM3.DLL V1.164.7.0
+Dialog DLL:      TCM.DLL V1.56.1.0
+ 
+<h2>Project:</h2>
+C:\Users\ilkay\Desktop\embed\015_adc_ir\adc.uvprojx
+Project File Date:  07/19/2022
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+main.c(1): warning: // comments are not allowed in this language [-Wcomment]
+#include "stm32f10x.h"                  // Device header
+                                        ^
+main.c(4): warning: no previous extern declaration for non-static variable 'ebru' [-Wmissing-variable-declarations]
+uint16_t ebru=0,canan=0;
+         ^
+main.c(4): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint16_t ebru=0,canan=0;
+^
+main.c(4): warning: no previous extern declaration for non-static variable 'canan' [-Wmissing-variable-declarations]
+uint16_t ebru=0,canan=0;
+                ^
+main.c(4): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint16_t ebru=0,canan=0;
+^
+main.c(7): warning: no previous prototype for function 'gpioco' [-Wmissing-prototypes]
+void gpioco(){
+     ^
+main.c(7): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void gpioco(){
+^
+static 
+main.c(7): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void gpioco(){
+           ^
+main.c(1): warning: In file included from...
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include\stm32f10x.h(8347): warning: In file included from...
+./RTE/Device/STM32F100RB\stm32f10x_conf.h(30): warning: In file included from...
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/inc\stm32f10x_adc.h(63): warning: padding struct 'ADC_InitTypeDef' with 2 bytes to align 'ADC_ExternalTrigConv' [-Wpadded]
+  uint32_t ADC_ExternalTrigConv;          /*!< Defines the external trigger used to start the analog
+           ^
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/inc\stm32f10x_adc.h(49): warning: padding size of 'ADC_InitTypeDef' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+main.c(19): warning: no previous prototype for function 'adcconf' [-Wmissing-prototypes]
+void adcconf(){
+     ^
+main.c(19): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void adcconf(){
+^
+static 
+main.c(19): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void adcconf(){
+            ^
+main.c(37): warning: no previous prototype for function 'adcfunction' [-Wmissing-prototypes]
+uint16_t adcfunction(){
+         ^
+main.c(37): note: declare 'static' if the function is not intended to be used outside of this translation unit
+uint16_t adcfunction(){
+^
+static 
+main.c(37): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+uint16_t adcfunction(){
+                    ^
+main.c(46): warning: no previous prototype for function 'anatodigwithformula' [-Wmissing-prototypes]
+uint16_t anatodigwithformula(uint16_t sam){
+         ^
+main.c(46): note: declare 'static' if the function is not intended to be used outside of this translation unit
+uint16_t anatodigwithformula(uint16_t sam){
+^
+static 
+main.c(66): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+main.c(5): warning: no previous extern declaration for non-static variable 'mapvalue' [-Wmissing-variable-declarations]
+float mapvalue;
+      ^
+main.c(5): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+float mapvalue;
+^
+14 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=2120 RO-data=304 RW-data=0 ZI-data=1640  
+".\Objects\adc.axf" - 0 Error(s), 14 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.0.pack
+                Keil.STM32F1xx_DFP.2.4.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: GPIO Version: 1.3
+   * Component: Startup Version: 1.0.0
+   * Component: ADC Version: 3.6.0
+   * Component: Framework Version: 3.6.0
+   * Component: GPIO Version: 3.6.0
+   * Component: RCC Version: 3.6.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/Device/STM32F100RB
+  ./RTE/_Target_1
+  C:/Users/ilkay/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include
+  C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/inc
+  C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: Keil::Device:GPIO:1.3
+      Source file:   RTE_Driver/GPIO_STM32F10x.c
+      Include file:  RTE_Driver/GPIO_STM32F10x.h
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device/Source/ARM/STM32F1xx_OPT.s
+      Source file:   Device/Source/system_stm32f10x.c
+      Source file:   Device/Source/ARM/startup_stm32f10x_md_vl.s
+      Include file:  RTE_Driver/Config/RTE_Device.h
+
+   * Component: Keil::Device:StdPeriph Drivers:ADC:3.6.0
+      Source file:   Device/StdPeriph_Driver/src/stm32f10x_adc.c
+      Include file:  Device/StdPeriph_Driver/inc/stm32f10x_adc.h
+
+   * Component: Keil::Device:StdPeriph Drivers:Framework:3.6.0
+      Include file:  Device/StdPeriph_Driver/inc/misc.h
+      Source file:   Device/StdPeriph_Driver/src/misc.c
+      Include file:  Device/StdPeriph_Driver/templates/stm32f10x_it.h
+      Source file:   Device/StdPeriph_Driver/templates/stm32f10x_it.c
+      Source file:   Device/StdPeriph_Driver/templates/stm32f10x_conf.h
+
+   * Component: Keil::Device:StdPeriph Drivers:GPIO:3.6.0
+      Source file:   Device/StdPeriph_Driver/src/stm32f10x_gpio.c
+      Include file:  Device/StdPeriph_Driver/inc/stm32f10x_gpio.h
+
+   * Component: Keil::Device:StdPeriph Drivers:RCC:3.6.0
+      Include file:  Device/StdPeriph_Driver/inc/stm32f10x_rcc.h
+      Source file:   Device/StdPeriph_Driver/src/stm32f10x_rcc.c
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>

@@ -1,0 +1,23 @@
+--cpu Cortex-M3
+"uygulama2(button)\startup_stm32f103x6.o"
+"uygulama2(button)\main.o"
+"uygulama2(button)\stm32f1xx_it.o"
+"uygulama2(button)\stm32f1xx_hal_msp.o"
+"uygulama2(button)\stm32f1xx_hal_gpio_ex.o"
+"uygulama2(button)\stm32f1xx_hal_tim.o"
+"uygulama2(button)\stm32f1xx_hal_tim_ex.o"
+"uygulama2(button)\stm32f1xx_hal.o"
+"uygulama2(button)\stm32f1xx_hal_rcc.o"
+"uygulama2(button)\stm32f1xx_hal_rcc_ex.o"
+"uygulama2(button)\stm32f1xx_hal_gpio.o"
+"uygulama2(button)\stm32f1xx_hal_dma.o"
+"uygulama2(button)\stm32f1xx_hal_cortex.o"
+"uygulama2(button)\stm32f1xx_hal_pwr.o"
+"uygulama2(button)\stm32f1xx_hal_flash.o"
+"uygulama2(button)\stm32f1xx_hal_flash_ex.o"
+"uygulama2(button)\stm32f1xx_hal_exti.o"
+"uygulama2(button)\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "Uygulama2(Button)\Uygulama2(Button).sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Uygulama2(Button).map" -o Uygulama2(Button)\Uygulama2(Button).axf

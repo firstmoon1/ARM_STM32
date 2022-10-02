@@ -1,0 +1,1 @@
+uygulama10(uart_with_bcd_display)\startup_stm32f103x6.o: startup_stm32f103x6.s

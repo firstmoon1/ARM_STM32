@@ -1,0 +1,23 @@
+--cpu Cortex-M3
+"uygulama6(external interrupt)\startup_stm32f103x6.o"
+"uygulama6(external interrupt)\main.o"
+"uygulama6(external interrupt)\stm32f1xx_it.o"
+"uygulama6(external interrupt)\stm32f1xx_hal_msp.o"
+"uygulama6(external interrupt)\stm32f1xx_hal_gpio_ex.o"
+"uygulama6(external interrupt)\stm32f1xx_hal_tim.o"
+"uygulama6(external interrupt)\stm32f1xx_hal_tim_ex.o"
+"uygulama6(external interrupt)\stm32f1xx_hal.o"
+"uygulama6(external interrupt)\stm32f1xx_hal_rcc.o"
+"uygulama6(external interrupt)\stm32f1xx_hal_rcc_ex.o"
+"uygulama6(external interrupt)\stm32f1xx_hal_gpio.o"
+"uygulama6(external interrupt)\stm32f1xx_hal_dma.o"
+"uygulama6(external interrupt)\stm32f1xx_hal_cortex.o"
+"uygulama6(external interrupt)\stm32f1xx_hal_pwr.o"
+"uygulama6(external interrupt)\stm32f1xx_hal_flash.o"
+"uygulama6(external interrupt)\stm32f1xx_hal_flash_ex.o"
+"uygulama6(external interrupt)\stm32f1xx_hal_exti.o"
+"uygulama6(external interrupt)\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "Uygulama6(External Interrupt)\Uygulama6(External Interrupt).sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Uygulama6(External Interrupt).map" -o "Uygulama6(External Interrupt)\Uygulama6(External Interrupt).axf"

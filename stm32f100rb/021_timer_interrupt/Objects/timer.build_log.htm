@@ -1,0 +1,242 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.37.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: sd ilkay, as, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.37.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.18
+Assembler:       Armasm.exe V6.18
+Linker/Locator:  ArmLink.exe V6.18
+Library Manager: ArmAr.exe V6.18
+Hex Converter:   FromElf.exe V6.18
+CPU DLL:         SARMCM3.DLL V5.37.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      UL2CM3.DLL V1.164.7.0
+Dialog DLL:      TCM.DLL V1.56.1.0
+ 
+<h2>Project:</h2>
+C:\Users\ilkay\Desktop\embed\021_timer_interrupt\timer.uvprojx
+Project File Date:  07/21/2022
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/src/misc.c(131): warning: implicit conversion loses integer precision: 'uint32_t' (aka 'unsigned int') to 'uint8_t' (aka 'unsigned char') [-Wimplicit-int-conversion]
+    NVIC->IP[NVIC_InitStruct->NVIC_IRQChannel] = tmppriority;
+                                               ~ ^~~~~~~~~~~
+1 warning generated.
+compiling misc.c...
+compiling stm32f10x_gpio.c...
+main.c(1): warning: // comments are not allowed in this language [-Wcomment]
+#include "stm32f10x_tim.h"              // Keil::Device:StdPeriph Drivers:TIM
+                                        ^
+main.c(4): warning: no previous prototype for function 'gpio_conf' [-Wmissing-prototypes]
+void gpio_conf(){
+     ^
+main.c(4): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void gpio_conf(){
+^
+static 
+main.c(4): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void gpio_conf(){
+              ^
+main.c(1): warning: In file included from...
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/inc\stm32f10x_tim.h(50): warning: padding size of 'TIM_TimeBaseInitTypeDef' with 1 byte to alignment boundary [-Wpadded]
+typedef struct
+        ^
+main.c(17): warning: no previous prototype for function 'timer_conf' [-Wmissing-prototypes]
+void timer_conf(){
+     ^
+main.c(17): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void timer_conf(){
+^
+static 
+main.c(17): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void timer_conf(){
+               ^
+main.c(45): warning: no previous prototype for function 'toggle_led' [-Wmissing-prototypes]
+void toggle_led(){
+     ^
+main.c(45): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void toggle_led(){
+^
+static 
+main.c(45): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void toggle_led(){
+               ^
+main.c(56): warning: no previous prototype for function 'TIM3_IRQHandler' [-Wmissing-prototypes]
+void TIM3_IRQHandler(){
+     ^
+main.c(56): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void TIM3_IRQHandler(){
+^
+static 
+main.c(56): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void TIM3_IRQHandler(){
+                    ^
+main.c(85): warning: no newline at end of file [-Wnewline-eof]
+*/
+  ^
+11 warnings generated.
+compiling main.c...
+compiling stm32f10x_rcc.c...
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.c(26): warning: In file included from...
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.h(39): warning: // comments are not allowed in this language [-Wcomment]
+/// GPIO Pin identifier
+^
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.h(173): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+extern void GPIO_PortClock (GPIO_TypeDef *GPIOx, bool enable);
+                                                 ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.c(26): warning: In file included from...
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.h(182): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+extern bool GPIO_GetPortClockState (GPIO_TypeDef *GPIOx);
+       ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.c(26): warning: In file included from...
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.h(197): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool GPIO_PinConfigure(GPIO_TypeDef      *GPIOx,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.c(26): warning: In file included from...
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.h(246): warning: implicit conversion loses integer precision: 'volatile uint32_t' (aka 'volatile unsigned int') to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+  return (GPIOx->IDR);
+  ~~~~~~  ~~~~~~~^~~
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.c(47): warning: // comments are not allowed in this language [-Wcomment]
+#define AFIO_MAPR_SWJ_CFG_VAL   (AFIO_SWJ_FULL)    // Full SWJ (JTAG-DP + SW-DP)
+                                                   ^
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.c(56): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+void GPIO_PortClock (GPIO_TypeDef *GPIOx, bool enable) {
+                                          ^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.c(84): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool GPIO_GetPortClockState (GPIO_TypeDef *GPIOx) {
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.c(111): warning: '_Bool' is a C99 extension [-Wc99-extensions]
+bool GPIO_PinConfigure(GPIO_TypeDef *GPIOx, uint32_t num, GPIO_CONF conf,
+^
+C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdbool.h(15): note: expanded from macro 'bool'
+    #define bool _Bool
+                 ^
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.c(128): warning: integer constant not in range of enumerated type 'GPIO_CONF' [-Wassign-enum]
+      conf &= ~1;
+              ^
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.c(140): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+  *reg &= ~(0xF << (num << 2));
+       ~~ ^~~~~~~~~~~~~~~~~~~~
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.c(141): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+  *reg |= ((conf << 2) | mode) << (num << 2);
+       ~~ ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+12 warnings generated.
+compiling GPIO_STM32F10x.c...
+RTE/Device/STM32F100RB/system_stm32f10x.c(166): warning: no previous extern declaration for non-static variable 'AHBPrescTable' [-Wmissing-variable-declarations]
+__I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
+            ^
+RTE/Device/STM32F100RB/system_stm32f10x.c(166): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+__I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
+    ^
+1 warning generated.
+compiling system_stm32f10x.c...
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/src/stm32f10x_tim.c(22): warning: In file included from...
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/inc\stm32f10x_tim.h(50): warning: padding size of 'TIM_TimeBaseInitTypeDef' with 1 byte to alignment boundary [-Wpadded]
+typedef struct
+        ^
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/src/stm32f10x_tim.c(725): warning: implicit conversion loses integer precision: 'unsigned int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+             TIM_BDTRInitStruct->TIM_Break | TIM_BDTRInitStruct->TIM_BreakPolarity |
+             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/src/stm32f10x_tim.c(1982): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+  tmp = CCER_CCE_Set << TIM_Channel;
+      ~ ~~~~~~~~~~~~~^~~~~~~~~~~~~~
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/src/stm32f10x_tim.c(2012): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+  tmp = CCER_CCNE_Set << TIM_Channel;
+      ~ ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/src/stm32f10x_tim.c(2057): warning: implicit conversion loses integer precision: 'int' to 'uint16_t' (aka 'unsigned short') [-Wimplicit-int-conversion]
+  tmp1 = CCER_CCE_Set << (uint16_t)TIM_Channel;
+       ~ ~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+5 warnings generated.
+compiling stm32f10x_tim.c...
+assembling startup_stm32f10x_md_vl.s...
+linking...
+Program Size: Code=2124 RO-data=304 RW-data=0 ZI-data=1632  
+".\Objects\timer.axf" - 0 Error(s), 30 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.0.pack
+                Keil.STM32F1xx_DFP.2.4.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: GPIO Version: 1.3
+   * Component: Startup Version: 1.0.0
+   * Component: Framework Version: 3.6.0
+   * Component: GPIO Version: 3.6.0
+   * Component: RCC Version: 3.6.0
+   * Component: TIM Version: 3.6.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/Device/STM32F100RB
+  ./RTE/_Target_1
+  C:/Users/ilkay/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/Include
+  C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/inc
+  C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: Keil::Device:GPIO:1.3
+      Include file:  RTE_Driver/GPIO_STM32F10x.h
+      Source file:   RTE_Driver/GPIO_STM32F10x.c
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device/Source/system_stm32f10x.c
+      Source file:   Device/Source/ARM/STM32F1xx_OPT.s
+      Source file:   Device/Source/ARM/startup_stm32f10x_md_vl.s
+      Include file:  RTE_Driver/Config/RTE_Device.h
+
+   * Component: Keil::Device:StdPeriph Drivers:Framework:3.6.0
+      Source file:   Device/StdPeriph_Driver/templates/stm32f10x_it.c
+      Source file:   Device/StdPeriph_Driver/templates/stm32f10x_conf.h
+      Include file:  Device/StdPeriph_Driver/inc/misc.h
+      Source file:   Device/StdPeriph_Driver/src/misc.c
+      Include file:  Device/StdPeriph_Driver/templates/stm32f10x_it.h
+
+   * Component: Keil::Device:StdPeriph Drivers:GPIO:3.6.0
+      Source file:   Device/StdPeriph_Driver/src/stm32f10x_gpio.c
+      Include file:  Device/StdPeriph_Driver/inc/stm32f10x_gpio.h
+
+   * Component: Keil::Device:StdPeriph Drivers:RCC:3.6.0
+      Source file:   Device/StdPeriph_Driver/src/stm32f10x_rcc.c
+      Include file:  Device/StdPeriph_Driver/inc/stm32f10x_rcc.h
+
+   * Component: Keil::Device:StdPeriph Drivers:TIM:3.6.0
+      Include file:  Device/StdPeriph_Driver/inc/stm32f10x_tim.h
+      Source file:   Device/StdPeriph_Driver/src/stm32f10x_tim.c
+Build Time Elapsed:  00:00:08
+</pre>
+</body>
+</html>

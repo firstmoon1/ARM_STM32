@@ -1,0 +1,24 @@
+--cpu Cortex-M3
+"uygulama10(uart_with_bcd_display)\startup_stm32f103x6.o"
+"uygulama10(uart_with_bcd_display)\main.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_it.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_hal_msp.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_hal_gpio_ex.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_hal_tim.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_hal_tim_ex.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_hal_uart.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_hal.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_hal_rcc.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_hal_rcc_ex.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_hal_gpio.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_hal_dma.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_hal_cortex.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_hal_pwr.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_hal_flash.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_hal_flash_ex.o"
+"uygulama10(uart_with_bcd_display)\stm32f1xx_hal_exti.o"
+"uygulama10(uart_with_bcd_display)\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "Uygulama10(uart_with_bcd_display)\Uygulama10(uart_with_bcd_display).sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Uygulama10(uart_with_bcd_display).map" -o Uygulama10(uart_with_bcd_display)\Uygulama10(uart_with_bcd_display).axf

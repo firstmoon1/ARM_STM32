@@ -1,0 +1,12 @@
+Dependencies for Project 'ultrasonik_sensor', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
+F (.\main.c)(0x5F32B5FE)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\STM32F100RB-I.\RTE\_Target_1-I"C:\Users\Arif mandal\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"C:\Users\Arif mandal\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-I"C:\Users\Arif mandal\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc"-I"C:\Users\Arif mandal\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\RTE_Driver"-D__UVISION_VERSION="529" -D_RTE_ -DSTM32F10X_MD_VL-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/src/misc.c)(0x61ADBFAE)()
+F (C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/src/stm32f10x_gpio.c)(0x61ADBFAE)()
+F (C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/src/stm32f10x_rcc.c)(0x61ADBFAE)()
+F (C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/Device/StdPeriph_Driver/src/stm32f10x_usart.c)(0x61ADBFAE)()
+F (C:/Users/ilkay/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.0/RTE_Driver/GPIO_STM32F10x.c)(0x5FC0963A)()
+F (RTE/Device/STM32F100RB/RTE_Device.h)(0x59283406)()
+F (RTE/Device/STM32F100RB/startup_stm32f10x_md_vl.s)(0x58258CCC)()
+F (RTE/Device/STM32F100RB/stm32f10x_conf.h)(0x52FA3420)()
+F (RTE/Device/STM32F100RB/system_stm32f10x.c)(0x58258CCC)()

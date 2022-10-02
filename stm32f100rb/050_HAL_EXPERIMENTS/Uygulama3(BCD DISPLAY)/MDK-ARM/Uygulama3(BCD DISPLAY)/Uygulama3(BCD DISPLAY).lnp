@@ -1,0 +1,23 @@
+--cpu Cortex-M3
+"uygulama3(bcd display)\startup_stm32f103x6.o"
+"uygulama3(bcd display)\main.o"
+"uygulama3(bcd display)\stm32f1xx_it.o"
+"uygulama3(bcd display)\stm32f1xx_hal_msp.o"
+"uygulama3(bcd display)\stm32f1xx_hal_gpio_ex.o"
+"uygulama3(bcd display)\stm32f1xx_hal_tim.o"
+"uygulama3(bcd display)\stm32f1xx_hal_tim_ex.o"
+"uygulama3(bcd display)\stm32f1xx_hal.o"
+"uygulama3(bcd display)\stm32f1xx_hal_rcc.o"
+"uygulama3(bcd display)\stm32f1xx_hal_rcc_ex.o"
+"uygulama3(bcd display)\stm32f1xx_hal_gpio.o"
+"uygulama3(bcd display)\stm32f1xx_hal_dma.o"
+"uygulama3(bcd display)\stm32f1xx_hal_cortex.o"
+"uygulama3(bcd display)\stm32f1xx_hal_pwr.o"
+"uygulama3(bcd display)\stm32f1xx_hal_flash.o"
+"uygulama3(bcd display)\stm32f1xx_hal_flash_ex.o"
+"uygulama3(bcd display)\stm32f1xx_hal_exti.o"
+"uygulama3(bcd display)\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "Uygulama3(BCD DISPLAY)\Uygulama3(BCD DISPLAY).sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Uygulama3(BCD DISPLAY).map" -o "Uygulama3(BCD DISPLAY)\Uygulama3(BCD DISPLAY).axf"

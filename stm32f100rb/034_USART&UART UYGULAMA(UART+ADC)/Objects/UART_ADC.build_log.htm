@@ -1,0 +1,138 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.31.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Arif mandal, agu, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.31.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.14
+Assembler:       Armasm.exe V6.14
+Linker/Locator:  ArmLink.exe V6.14
+Library Manager: ArmAr.exe V6.14
+Hex Converter:   FromElf.exe V6.14
+CPU DLL:         SARMCM3.DLL V5.31.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      UL2CM3.DLL V1.163.4.0
+Dialog DLL:      TCM.DLL V1.46.0.0
+ 
+<h2>Project:</h2>
+C:\Users\Arif mandal\Desktop\Embedded Systems Udemy Document\27_USART&UART UYGULAMA(UART+ADC)\UART_ADC.uvprojx
+Project File Date:  08/01/2020
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.14', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+main.c(5): warning: In file included from...
+./delay.h(28): warning: no newline at end of file [-Wnewline-eof]
+/******************************************************************************/
+                                                                                ^
+main.c(8): warning: no previous extern declaration for non-static variable 'data' [-Wmissing-variable-declarations]
+uint16_t data=0;
+         ^
+main.c(8): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint16_t data=0;
+^
+main.c(1): warning: In file included from...
+C:/Users/Arif mandal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include\stm32f10x.h(8302): warning: In file included from...
+./RTE/Device/STM32F100RB\stm32f10x_conf.h(30): warning: In file included from...
+C:/Users/Arif mandal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/StdPeriph_Driver/inc\stm32f10x_adc.h(64): warning: padding struct 'ADC_InitTypeDef' with 2 bytes to align 'ADC_ExternalTrigConv' [-Wpadded]
+  uint32_t ADC_ExternalTrigConv;          /*!< Defines the external trigger used to start the analog
+           ^
+C:/Users/Arif mandal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/StdPeriph_Driver/inc\stm32f10x_adc.h(50): warning: padding size of 'ADC_InitTypeDef' with 3 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+main.c(1): warning: In file included from...
+C:/Users/Arif mandal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include\stm32f10x.h(8302): warning: In file included from...
+./RTE/Device/STM32F100RB\stm32f10x_conf.h(90): warning: In file included from...
+C:/Users/Arif mandal/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/StdPeriph_Driver/inc\stm32f10x_usart.h(50): warning: padding size of 'USART_InitTypeDef' with 2 bytes to alignment boundary [-Wpadded]
+typedef struct
+        ^
+main.c(93): warning: expression result unused [-Wunused-value]
+      *string++;
+      ^~~~~~~~~
+main.c(9): warning: no previous extern declaration for non-static variable 'message' [-Wmissing-variable-declarations]
+char message[20];
+     ^
+main.c(9): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+char message[20];
+^
+7 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=2536 RO-data=356 RW-data=4 ZI-data=1664  
+FromELF: creating hex file...
+".\Objects\UART_ADC.axf" - 0 Error(s), 7 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.4.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.3.0.pack
+                Keil.STM32F1xx_DFP.2.3.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: GPIO Version: 1.3
+   * Component: Startup Version: 1.0.0
+   * Component: ADC Version: 3.5.0
+   * Component: Framework Version: 3.5.1
+   * Component: GPIO Version: 3.5.0
+   * Component: RCC Version: 3.5.0
+   * Component: USART Version: 3.5.0
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\Device\STM32F100RB
+  .\RTE\_Target_1
+  C:\Users\Arif mandal\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  C:\Users\Arif mandal\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
+  C:\Users\Arif mandal\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc
+  C:\Users\Arif mandal\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\RTE_Driver
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.4.0
+
+   * Component: Keil::Device:GPIO:1.3
+      Include file:  RTE_Driver\GPIO_STM32F10x.h
+      Source file:   RTE_Driver\GPIO_STM32F10x.c
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\system_stm32f10x.c
+      Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+      Source file:   Device\Source\ARM\startup_stm32f10x_md_vl.s
+
+   * Component: Keil::Device:StdPeriph Drivers:ADC:3.5.0
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_adc.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_adc.h
+
+   * Component: Keil::Device:StdPeriph Drivers:Framework:3.5.1
+      Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
+      Include file:  Device\StdPeriph_Driver\inc\misc.h
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
+      Source file:   Device\StdPeriph_Driver\src\misc.c
+
+   * Component: Keil::Device:StdPeriph Drivers:GPIO:3.5.0
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_gpio.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
+
+   * Component: Keil::Device:StdPeriph Drivers:RCC:3.5.0
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
+
+   * Component: Keil::Device:StdPeriph Drivers:USART:3.5.0
+      Include file:  Device\StdPeriph_Driver\inc\stm32f10x_usart.h
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_usart.c
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>
