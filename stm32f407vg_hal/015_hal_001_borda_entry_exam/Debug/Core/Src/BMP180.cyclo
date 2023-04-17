@@ -1,0 +1,6 @@
+BMP180.c:12:6:BMP180_Init	2
+BMP180.c:21:6:BMP180_Get_Calibration_Value	12
+BMP180.c:89:6:BMP180_Get_Temparature	4
+BMP180.c:102:6:BMP180_Get_Uncompansated_Temparature	1
+BMP180.c:113:6:BMP180_Get_Pressure	12
+BMP180.c:139:6:BMP180_Get_Uncompansated_Pressure	1

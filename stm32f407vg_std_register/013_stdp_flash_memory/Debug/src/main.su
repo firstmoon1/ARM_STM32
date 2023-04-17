@@ -1,0 +1,3 @@
+main.c:7:6:FlASH_Write	16	static
+main.c:16:10:FLASH_Read	24	static
+main.c:24:5:main	8	static
