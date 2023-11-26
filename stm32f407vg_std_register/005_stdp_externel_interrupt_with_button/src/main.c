@@ -4,7 +4,7 @@
 void gpio_config(){
 	GPIO_InitTypeDef init;
 
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD,ENABLE); // led  PD12,13,14,15
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD,ENABLE); // led  PD12,13,14,15 , rcc configure
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA,ENABLE); // button PA0 exti
 	// led config
 	init.GPIO_Mode= GPIO_Mode_OUT; // general purpose output
@@ -27,7 +27,7 @@ void gpio_config(){
 void exti_config(){
 	EXTI_InitTypeDef init;
 
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG,ENABLE); // SYSCFG burda exti,interrupt için clock name,
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG,ENABLE); // SYSCFG burda exti,interrupt icin clock name,
 
 	init.EXTI_Line=EXTI_Line0;
 	init.EXTI_LineCmd=ENABLE;
@@ -46,7 +46,7 @@ void nvic_config(){
 
 	init.NVIC_IRQChannel=EXTI0_IRQn;
 	init.NVIC_IRQChannelCmd=ENABLE;
-	init.NVIC_IRQChannelPreemptionPriority=0;  // 0 to 15 arasý degerler alabilir ,sýnýrlar dahil
+	init.NVIC_IRQChannelPreemptionPriority=0;  // 0 to 15 arasi degerler alabilir ,sinirlar dahil
 	init.NVIC_IRQChannelSubPriority=0;
 
 	NVIC_Init(&init);
@@ -69,7 +69,7 @@ void EXTI0_IRQHandler(){
 
 		EXTI_ClearITPendingBit(EXTI_Line0);
 	}
-	//EXTI_ClearITPendingBit(EXTI_Line0); // þu an için fark etmez ,if içinde yazarsan tasarruf edersin sürekli calýþmaz bu komut
+	//EXTI_ClearITPendingBit(EXTI_Line0); // ï¿½u an iï¿½in fark etmez ,if iï¿½inde yazarsan tasarruf edersin sï¿½rekli calï¿½ï¿½maz bu komut
 }
 
 int main(void){
